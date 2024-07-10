@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.views import generic
 
-from .models import Driver, Car, Manufacturer
+from .models import (
+    Driver,
+    Car, 
+    Manufacturer,
+)
 
 
 def index(request):
-    """View function for the home page of the site."""
 
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
