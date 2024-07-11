@@ -13,5 +13,13 @@
   </ul>
   <form method="get">
     <button type="submit" name="reset">Сбросить счетчик</button>
-</form>
+  </form>
+  <div class="sidebar">
+        {% if user.is_authenticated %}
+            <p>Добро пожаловать, <a href="{% url 'taxi:driver-detail' user.id %}">{{ user.username }}</a></p>
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </div>
 {% endblock %}
